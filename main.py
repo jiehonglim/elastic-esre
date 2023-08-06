@@ -2,11 +2,6 @@ import streamlit as st
 import pandas as pd
 from elasticsearch import Elasticsearch
 
-# es_api_id = st.secrets["es_api_id"]
-# es_api_key = st.secrets["es_api_key"]
-# https://jh-elastic.ent.asia-southeast1.gcp.elastic-cloud.com
-# https://jh-elastic.es.asia-southeast1.gcp.elastic-cloud.com
-
 es_username = st.secrets["es_username"]
 es_password = st.secrets["es_password"]
 es_cloudid = st.secrets["es_cloudid"]
