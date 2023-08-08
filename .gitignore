@@ -1,6 +1,6 @@
-.streamlit
-testing.ipynb
-
+secrets.toml
+testing*.ipynb
+/models
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos
