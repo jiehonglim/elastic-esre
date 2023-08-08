@@ -12,8 +12,6 @@ openai.api_key = st.secrets["openai_api_key"]
 
 model = "gpt-3.5-turbo-0301"
 
-source_fields = ["title", "meta_description", "url"]
-
 def es_connect(cid, user, passwd):
     es = Elasticsearch(cloud_id=cid, basic_auth=(user, passwd))
     return es
@@ -56,7 +54,6 @@ def search(index, query_text):
         "boost": 24
     }
 
-    fields = ["title", "meta_description", "body_content", "url", "ml.inference.search-govtech-dev-docs-gpt-vector"]
     resp = es.search(index=index,
                      query=query,
                      knn=knn)
@@ -95,7 +92,7 @@ with st.form("chat_form"):
 negResponse = "I'm unable to answer the question based on the information I have from Elastic Docs."
 if submit_button:
     body, url = search(es_index, query)
-    prompt = f"Answer this question: {query}\nUsing only the information from your docs: {body}\nIf the answer is not contained in the supplied doc reply '{negResponse}' and nothing else"
+    prompt = f"Answer this question: {query}\nUsing only the information from your docs: {body}\nPlease structure the response with a high level summary and 5 bullet points\nIf the answer is not contained in the supplied doc reply '{negResponse}' and nothing else"
     answer = chat_gpt(prompt)
     
     if negResponse in answer:
