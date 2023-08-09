@@ -1,0 +1,7 @@
+streamlit
+openai
+elasticsearch
+eland
+sentence_transformers
+transformers
+torch
