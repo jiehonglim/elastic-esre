@@ -1,5 +1,7 @@
 secrets.toml
 testing*.ipynb
+testing*.py
+testing*.txt
 /models
 
 
